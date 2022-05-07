@@ -3,10 +3,12 @@ import { BellIcon, SearchIcon } from '@heroicons/react/solid'
 // import useAuth from '../hooks/useAuth'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
+import useAuth from '../hooks/useAuth'
 // import BasicMenu from './BasicMenu'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const { logout } = useAuth()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,7 @@ const Header = () => {
           width={100}
           height={100}
           className="cursor-pointer object-contain"
+          onClick={() => logout()}
         />
 
         {/* <BasicMenu /> */}
